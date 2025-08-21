@@ -35,7 +35,18 @@ void selectionSort(int arr[], int n) {
 }
 
 void insertionSort(int arr[], int n) {
-    
+    if(n < 2){
+		return;
+	}
+	for(int i=1; i<n; i++){
+		int var = arr[i];
+		int j = i - 1;
+		while(j >= 0 && arr[j] > var){
+			arr[j+1] = arr[j];
+			j--;
+		}
+		arr[j+1] = var;
+	}
 }
 
 void merge(int arr[], int left, int mid, int right) {
