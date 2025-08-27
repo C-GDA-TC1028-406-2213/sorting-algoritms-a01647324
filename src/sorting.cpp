@@ -50,7 +50,31 @@ void insertionSort(int arr[], int n) {
 }
 
 void merge(int arr[], int left, int mid, int right) {
-    
+    int narr[right + 1];
+    int m = 0;
+
+    int p = left;      
+    int q = mid + 1;  
+
+    while(p <= mid && q <= right){
+        if(arr[p] <= arr[q]){
+            narr[m++] = arr[p++];
+        } else {
+            narr[m++] = arr[q++];
+        }
+    }
+
+    while(p <= mid){
+        narr[m++] = arr[p++];
+    }
+
+    while(q <= right){
+        narr[m++] = arr[q++];
+    }
+
+    for (int i = 0; i < m; i++) {
+        arr[left + i] = narr[i];
+    }
 }
 
 void mergeSort(int arr[], int left, int right) {
